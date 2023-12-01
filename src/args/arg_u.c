@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   arg_c.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:44:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/01 14:24:53 by tclaereb         ###   ########.fr       */
+/*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
+/*   Updated: 2023/12/01 14:46:46 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../../ft_printf.h"
 
-# include <stdio.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <limits.h>
-# include "./src/libft/libft.h"
+int arg_u(va_list args)
+{
+    unsigned int	n;
+    int				len;
+    char			*s;
 
-int				arg_c(va_list args);
-int				arg_s(va_list args);
-int 			arg_d(va_list args);
-int				arg_u(va_list args);
-int				ft_printf(const char *format, ...);
-
-#endif
+    n = va_arg(args, unsigned int);
+    s = ft_uitoa(n);
+    len = 0;
+    while (*s)
+    {
+        if (ft_putchar_fd(*s, 1) == -1)
+            return (-1);
+        s++;
+        len++;
+    }
+    free(s - len);
+    return (len);
+}

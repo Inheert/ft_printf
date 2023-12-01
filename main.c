@@ -16,9 +16,9 @@ int	main(void)
 {
 	//int a = ft_printf("Hel%clo %c %% Salut yt %u rtr %sNon\n", 'a', 'a', -154, "howe");
 	char	*p = "woignprweig";
-	int b = ft_printf("  %d ", -15486);
+	int b = ft_printf(" %s %d %i ", "Yo l'equipe", 154, -154);
 	ft_putchar_fd('\n', 1);
-	int c = printf("  %d ", -15486);
+	int c = printf(" %s %d %i ", "Yo l'equipe", 154, -154);
 	printf("\n%d, %d", b, c);
 	return (0);
 }

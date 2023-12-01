@@ -2,6 +2,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = src/ft_printf.c \
+		src/args/arg_c.c \
+		src/args/arg_s.c \
+		src/args/arg_d.c \
+		src/args/arg_u.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 NAME = libftprintf.a
