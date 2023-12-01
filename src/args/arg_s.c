@@ -19,6 +19,8 @@ int arg_s(va_list args)
 
     s = va_arg(args, char *);
     len = 0;
+    if (!s)
+        s = "(null)";
     while (*s)
     {
         if (ft_putchar_fd(*s, 1) == -1)

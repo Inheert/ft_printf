@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_c.c                                            :+:      :+:    :+:   */
+/*   arg_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,24 +12,44 @@
 
 #include "../../ft_printf.h"
 
-int arg_u(va_list args)
+char	*concat(uintptr_t n)
 {
-    unsigned int	n;
-    int				len;
-    char			*s;
+	char	*adress;
+	char	*s;
 
-    n = va_arg(args, unsigned int);
-    s = ft_uitoa(n);
-    if (!s)
-        return (-1);
-    len = 0;
-    while (*s)
-    {
-        if (ft_putchar_fd(*s, 1) == -1)
-            return (-1);
-        s++;
-        len++;
-    }
-    free(s - len);
-    return (len);
+	adress = ft_putadress_base16(n);
+	if (!adress)
+		return (NULL);
+	s = ft_strjoin("0x", adress);
+	free(adress);
+	if (!s)
+		return (NULL);
+	return (s);
+}
+
+int arg_p(va_list args)
+{
+	uintptr_t	n;
+	int			len;
+	char		*s;
+	char		*start;
+
+	n = va_arg(args, uintptr_t);
+	len = 0;
+	if (!n)
+		s = ft_strdup("0x0");
+	else
+		s = concat(n);
+	if (!s)
+		return (-1);
+	start = s;
+	while (*s)
+	{
+		if (ft_putchar_fd(*s, 1) == -1)
+			return (-1);
+		s++;
+		len++;
+	}
+	free(start);
+	return (len);
 }

@@ -23,6 +23,9 @@ int				arg_c(va_list args);
 int				arg_s(va_list args);
 int 			arg_d(va_list args);
 int				arg_u(va_list args);
+int             arg_p(va_list args);
+int             arg_x(va_list args, int upper);
+int	            arg_percent();
 int				ft_printf(const char *format, ...);
 
 #endif

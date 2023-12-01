@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_c.c                                            :+:      :+:    :+:   */
+/*   arg_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,24 +12,9 @@
 
 #include "../../ft_printf.h"
 
-int arg_u(va_list args)
+int	arg_percent()
 {
-    unsigned int	n;
-    int				len;
-    char			*s;
-
-    n = va_arg(args, unsigned int);
-    s = ft_uitoa(n);
-    if (!s)
-        return (-1);
-    len = 0;
-    while (*s)
-    {
-        if (ft_putchar_fd(*s, 1) == -1)
-            return (-1);
-        s++;
-        len++;
-    }
-    free(s - len);
-    return (len);
+	if (ft_putchar_fd('%', 1) == -1)
+		return (-1);
+	return (1);
 }

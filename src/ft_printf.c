@@ -23,6 +23,14 @@ int	manage_symbols(const char *format, va_list args)
 		return (arg_d(args));
 	else if (*format == 'u')
 		return (arg_u(args));
+	else if (*format == 'x')
+		return (arg_x(args, 0));
+	else if (*format == 'X')
+		return (arg_x(args, 1));
+	else if (*format == 'p')
+		return (arg_p(args));
+	else if (*format == '%')
+		return (arg_percent());
 	return (-1);
 }
 

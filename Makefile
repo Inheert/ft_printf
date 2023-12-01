@@ -6,6 +6,9 @@ SOURCES = src/ft_printf.c \
 		src/args/arg_s.c \
 		src/args/arg_d.c \
 		src/args/arg_u.c \
+		src/args/arg_p.c \
+		src/args/arg_x.c \
+		src/args/arg_percent.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 NAME = libftprintf.a

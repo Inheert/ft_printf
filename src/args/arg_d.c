@@ -20,6 +20,8 @@ int arg_d(va_list args)
 
     n = va_arg(args, int);
     s = ft_itoa(n);
+    if (!s)
+        return (-1);
     len = 0;
     while (*s)
     {
