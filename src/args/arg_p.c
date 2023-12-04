@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_x.c                                            :+:      :+:    :+:   */
+/*   arg_p.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/01 14:46:46 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:27:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*concat(uintptr_t n)
 	char	*adress;
 	char	*s;
 
+	if (!n)
+		return (ft_strdup("0x0"));
 	adress = ft_putadress_base16(n);
 	if (!adress)
 		return (NULL);
@@ -36,17 +38,17 @@ int arg_p(va_list args)
 
 	n = va_arg(args, uintptr_t);
 	len = 0;
-	if (!n)
-		s = ft_strdup("0x0");
-	else
-		s = concat(n);
+	s = concat(n);
 	if (!s)
 		return (-1);
 	start = s;
 	while (*s)
 	{
 		if (ft_putchar_fd(*s, 1) == -1)
+		{
+			free(start);
 			return (-1);
+		}
 		s++;
 		len++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/01 14:46:46 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:29:55 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int arg_x(va_list args, int upper)
 	len = 0;
 	while (*s)
 	{
-		if (!upper && ft_putchar_fd(*s, 1) == -1)
+		if ((!upper && ft_putchar_fd(*s, 1) == -1) ||
+			(upper && ft_putchar_fd(ft_toupper(*s), 1) == -1))
+		{
+			free(s - len);
 			return (-1);
-		else if (upper && ft_putchar_fd(ft_toupper(*s), 1) == -1)
-			return (-1);
+		}
 		s++;
 		len++;
 	}

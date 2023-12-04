@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/01 14:46:46 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:28:07 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int arg_d(va_list args)
     while (*s)
     {
         if (ft_putchar_fd(*s, 1) == -1)
+        {
+            free(s - len);
             return (-1);
+        }
         s++;
         len++;
     }
