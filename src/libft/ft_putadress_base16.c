@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:06:49 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/04 11:42:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:00:42 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ static int	countsize(unsigned long long n)
 	return (count);
 }
 
-static void	recursive(char *ptr, unsigned long long n, unsigned int size, int *i)
+static void	recursive(char *ptr, unsigned long long n, int *i)
 {
 	char			*base;
 
 	base = "0123456789abcdef";
 	if (n / 16 >= 1)
 	{
-		recursive(ptr, n / 16, size, i);
-		recursive(ptr, n % 16, size, i);
+		recursive(ptr, n / 16, i);
+		recursive(ptr, n % 16, i);
 	}
 	else
 	{
@@ -55,6 +55,6 @@ char	*ft_putadress_base16(unsigned long long n)
 	ptr = ft_calloc(size, sizeof(char));
 	if (!ptr)
 		return (NULL);
-	recursive(ptr, n, size, &i);
+	recursive(ptr, n, &i);
 	return (ptr);
 }

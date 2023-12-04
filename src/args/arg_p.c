@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/04 11:27:08 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:59:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*concat(uintptr_t n)
 	return (s);
 }
 
-int arg_p(va_list args)
+int	arg_p(va_list args)
 {
 	uintptr_t	n;
 	int			len;

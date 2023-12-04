@@ -6,27 +6,27 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/04 11:29:55 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:00:21 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int arg_x(va_list args, int upper)
+int	arg_x(va_list args, int upper)
 {
-    unsigned int	n;
-    int				len;
-    char			*s;
+	unsigned int	n;
+	int				len;
+	char			*s;
 
-    n = va_arg(args, unsigned int);
-    s = ft_putnbr_base16(n);
+	n = va_arg(args, unsigned int);
+	s = ft_putnbr_base16(n);
 	if (!s)
 		return (-1);
 	len = 0;
 	while (*s)
 	{
-		if ((!upper && ft_putchar_fd(*s, 1) == -1) ||
-			(upper && ft_putchar_fd(ft_toupper(*s), 1) == -1))
+		if ((!upper && ft_putchar_fd(*s, 1) == -1)
+			|| (upper && ft_putchar_fd(ft_toupper(*s), 1) == -1))
 		{
 			free(s - len);
 			return (-1);

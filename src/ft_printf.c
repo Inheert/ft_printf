@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/12/01 14:46:46 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:01:02 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	manage_symbols(const char *format, va_list args)
 	return (-1);
 }
 
-int display_and_count(const char *format, va_list args)
+int	display_and_count(const char *format, va_list args)
 {
 	int	len;
 	int	symbol_len;
